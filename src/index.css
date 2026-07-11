@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Caveat:wght@700&display=swap');
+
+:root {
+  --primary: #e8a127;
+  --primary-hover: #cf8c1b;
+  --text-main: #2b2b2b;
+  --text-muted: #5e5e5e;
+  --text-light: #ffffff;
+  --bg-dark: #383838;
+  --bg-light: #ffffff;
+  --border-light: rgba(255, 255, 255, 0.15);
+  --border-dark: rgba(0, 0, 0, 0.08);
+  --font-base: 'DM Sans', sans-serif;
+  --font-hand: 'Figma Hand', 'Caveat', cursive;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  font-weight: 300; /* Default to Light */
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button {
+  font-family: var(--font-family);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
