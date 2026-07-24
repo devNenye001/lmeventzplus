@@ -3,9 +3,20 @@ import { Briefcase, Users, Sparkles } from 'lucide-react';
 import './Home.css';
 
 export default function Home() {
-  const logos = Array.from({ length: 10 }, (_, i) => `/logo${i + 1}.PNG`);
+  const logos = [
+    '/logo1.PNG',
+    '/logo2.PNG',
+    '/logo3.WEBP',
+    '/logo4.PNG',
+    '/logo5.PNG',
+    '/logo6.JPG',
+    '/logo7.PNG',
+    '/logo9.JPG',
+    '/logo10.JPG'
+  ];
   // Duplicate array once for infinite seamless scrolling marquee
   const marqueeLogos = [...logos, ...logos];
+
 
   const services = [
     {
@@ -21,12 +32,12 @@ export default function Home() {
     {
       title: 'Booth & Pavilion Fabrication',
       desc: 'Custom-built installations designed to elevate your brand presence.',
-      img: '/cooperate-event-cover.jpg',
+      img: '/booth-install.jpeg',
     },
     {
       title: 'Venue Selection & Management',
       desc: 'Find and manage the perfect location for your event.',
-      img: '/about-banner.jpg',
+      img: '/venue-pic.jpeg',
     },
   ];
 
@@ -85,10 +96,10 @@ export default function Home() {
           <p className="home-hero-desc">
             Whether it's a grand corporate event or an intimate social gathering, we bring your vision to life with creativity, precision, and exceptional execution.
           </p>
-          <a 
-            href="https://wa.me/2348136612150" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://wa.me/2348033536551"
+            target="_blank"
+            rel="noopener noreferrer"
             className="home-hero-btn"
           >
             Book Consultation
@@ -98,16 +109,19 @@ export default function Home() {
 
       {/* Trusted By Logos Marquee */}
       <div className="logos-section">
-        <h2 className="logos-header">Trusted by Over <span className='trusted-clients'>50+</span>clients who value creativity, quality, and excellence.</h2>
+        <h2 className="logos-header">
+          Trusted by Over <span className="trusted-clients">50+</span> clients who value creativity, quality, and excellence.
+        </h2>
         <div className="marquee-container">
           <div className="marquee-track">
             {marqueeLogos.map((logoSrc, idx) => (
-              <img 
-                key={idx} 
-                src={logoSrc} 
-                alt={`logo ${idx + 1}`} 
-                className="marquee-logo"
-              />
+              <div key={idx} className="marquee-logo-wrapper">
+                <img
+                  src={logoSrc}
+                  alt={`logo ${idx + 1}`}
+                  className="marquee-logo"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -117,7 +131,7 @@ export default function Home() {
       <div className="home-section-container">
         <div className="home-section-header">
           <h2 className="home-section-title">
-            We Don’t Just Organize Events — <br />
+            We Dont Just Organize Events — <br />
             We Create <span className="home-section-title-hand">Experiences.</span>
           </h2>
         </div>
@@ -127,9 +141,9 @@ export default function Home() {
               <h3 className="service-card-title">{service.title}</h3>
               <p className="service-card-desc">{service.desc}</p>
               <div className="service-card-img-wrapper">
-                <img 
-                  src={service.img} 
-                  alt={service.title} 
+                <img
+                  src={service.img}
+                  alt={service.title}
                   className="service-card-img"
                 />
                 <div className="service-card-overlay">
@@ -158,9 +172,9 @@ export default function Home() {
               Business-focused events such as conferences, seminars, meetings, and product launches.
             </p>
             <div className="project-card-img-wrapper">
-              <img 
-                src="/cooperate-event-cover.jpg" 
-                alt="Cooperate Events" 
+              <img
+                src="/cooperate-event-cover.jpg"
+                alt="Cooperate Events"
                 className="project-card-img"
               />
             </div>
@@ -173,9 +187,9 @@ export default function Home() {
               Celebratory gatherings such as weddings, birthdays, parties, and community events.
             </p>
             <div className="project-card-img-wrapper">
-              <img 
-                src="/social-event-cover.jpg" 
-                alt="Social Events" 
+              <img
+                src="/social-event-cover.jpg"
+                alt="Social Events"
                 className="project-card-img"
               />
             </div>
@@ -238,29 +252,29 @@ export default function Home() {
         </div>
         <div className="video-gallery-grid">
           <div className="video-card">
-            <video 
-              src="/video1.mp4" 
-              controls 
+            <video
+              src="/video-1.mp4"
+              controls
+              autoplay
               preload="metadata"
-              poster="/video1.png"
               className="home-video"
             />
           </div>
           <div className="video-card">
-            <video 
-              src="/video2.mp4" 
-              controls 
+            <video
+              src="/video-2.mp4"
+              controls
+              autoplay
               preload="metadata"
-              poster="/video1.png"
               className="home-video"
             />
           </div>
           <div className="video-card">
-            <video 
-              src="/video3.mp4" 
-              controls 
+            <video
+              src="/video-3.mp4"
+              controls
+              autoplay
               preload="metadata"
-              poster="/video1.png"
               className="home-video"
             />
           </div>
@@ -292,11 +306,12 @@ export default function Home() {
       {/* Large Video Showcase (Middle-Bottom) */}
       <div className="large-video-container">
         <div className="large-video-wrapper">
-          <video 
-            src="/main-showcase.mp4" 
-            controls 
+          <video
+            src="/home-video.mp4"
+            controls
+            autoplay
             preload="metadata"
-            poster="/video1.png"
+
             className="home-large-video"
           />
         </div>
@@ -313,10 +328,10 @@ export default function Home() {
           <p className="disco-desc">
             Let us help you plan your next event. Contact us today to speak with an event specialist.
           </p>
-          <a 
-            href="https://wa.me/2348136612150" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://wa.me/2348159261778"
+            target="_blank"
+            rel="noopener noreferrer"
             className="home-hero-btn"
           >
             Book Your Event

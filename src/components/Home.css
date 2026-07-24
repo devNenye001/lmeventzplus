@@ -108,24 +108,34 @@
 
 /* Logos Marquee Section */
 .logos-section {
-  padding: 60px 0;
-  background-color: #fafafa;
+  padding: 80px 0;
+  background-color: var(--bg-light);
   border-bottom: 1px solid var(--border-dark);
 }
- .trusted-clients {
-   font-family: var(--font-hand);
-    font-size: 15px;
-    color: var(--primary);
+
+.trusted-clients {
+  font-family: var(--font-hand);
+  font-size: 26px;
+  color: var(--primary);
+  margin: 0 4px;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translateY(-2px);
 }
 
 .logos-header {
   text-align: center;
   font-family: var(--font-base);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--text-muted);
-  letter-spacing: 1.5px;
-  margin-bottom: 30px;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  margin-bottom: 45px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
 }
 
 .marquee-container {
@@ -133,27 +143,64 @@
   width: 100%;
   position: relative;
   display: flex;
+  padding: 10px 0;
+}
+
+/* Edge gradient fade for a high-end look */
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-light), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--bg-light), transparent);
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  gap: 60px;
+  gap: 40px;
   animation: marquee 30s linear infinite;
   align-items: center;
 }
 
-.marquee-logo {
-  height: 40px;
-  object-fit: contain;
-  opacity: 0.65;
-  filter: grayscale(100%);
-  transition: opacity 0.3s ease, filter 0.3s ease;
+.marquee-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 75px;
+  padding: 0 12px;
+  transition: var(--transition);
 }
 
-.marquee-logo:hover {
+.marquee-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: grayscale(100%);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marquee-logo-wrapper:hover .marquee-logo {
   opacity: 1;
   filter: grayscale(0%);
+  transform: scale(1.08);
 }
 
 @keyframes marquee {
@@ -698,7 +745,7 @@
   }
 
   .home-section-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .home-section-title-hand {
@@ -739,5 +786,49 @@
   .home-section-container {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-title {
+    font-size: 26px;
+  }
+  .home-hero-title-hand {
+    font-size: 32px;
+  }
+  .home-hero-desc {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .home-hero-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  .home-section-title {
+    font-size: 22px !important;
+  }
+  .home-section-title-hand {
+    font-size: 28px !important;
+  }
+  .service-card-title {
+    font-size: 18px;
+  }
+  .why-card-title {
+    font-size: 18px;
+  }
+  .disco-title {
+    font-size: 22px;
+  }
+  .disco-title-hand {
+    font-size: 28px;
+  }
+  .step-title {
+    font-size: 16px;
+  }
+  .trusted-clients {
+    font-size: 20px;
+  }
+  .logos-header {
+    font-size: 14px;
   }
 }

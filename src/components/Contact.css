@@ -194,3 +194,34 @@
     height: 320px;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-banner-container {
+    height: 220px;
+  }
+  .contact-banner-title {
+    font-size: 26px;
+  }
+  .contact-title-hand {
+    font-size: 32px;
+  }
+  .contact-heading {
+    font-size: 24px;
+  }
+  .contact-subtext {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .contact-info-label {
+    font-size: 16px;
+  }
+  .contact-info-val {
+    font-size: 13px;
+  }
+  .contact-content-container {
+    padding: 30px 15px;
+  }
+  .contact-map-wrapper {
+    height: 260px;
+  }
+}

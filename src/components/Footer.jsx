@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './Footer.css';
 
 export default function Footer() {
@@ -10,7 +10,12 @@ export default function Footer() {
           <h2 className="footer-cta-title">
             Let's turn your vision into an <br /> unforgettable experience.
           </h2>
-          <a href="/book" className="footer-cta-btn">
+          <a 
+            href="https://wa.me/2348033536551" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="footer-cta-btn"
+          >
             Book Your Event
           </a>
         </div>
@@ -62,7 +67,7 @@ export default function Footer() {
                 <span className="support-icon">📞</span>
                 <div>
                   <span className="info-label">Call Us:</span>
-                  <a href="tel:+2348136612150" className="support-link">+234 813 661 2150</a> | <a href="tel:+2348032280081" className="support-link">+234 803 228 0081</a>
+                  <a href="tel:+2348033536551" className="support-link">+234 803 353 6551</a> | <a href="tel:+2348159261778" className="support-link">+234 815 926 1778</a>
                 </div>
               </li>
               <li>

@@ -1,30 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './EventPages.css';
 
+// Sub-component for individual video cards to manage hover playback cleanly
+function VideoCard({ videoSrc, idx, onClick }) {
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0; // reset to beginning
+    }
+  };
+
+  return (
+    <div 
+      className="event-gallery-card"
+      onClick={() => onClick(videoSrc)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      role="button"
+      tabIndex={0}
+      aria-label={`Play corporate event video ${idx + 1}`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClick(videoSrc);
+        }
+      }}
+    >
+      <div className="event-gallery-img-wrapper">
+        <video 
+          ref={videoRef}
+          src={videoSrc} 
+          className="event-gallery-video"
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <div className="video-card-overlay">
+          <div className="video-play-btn">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function CooperateEvents() {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   // Close lightbox on escape key press
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        setSelectedImg(null);
+        setSelectedVideo(null);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const galleryImages = [
-    '/cooperate-event-cover.jpg',
-    '/social-event-cover.jpg',
-    '/social-event-cover.jpg',
-    '/cooperate-event-cover.jpg',
-    '/social-event-cover.jpg',
-    '/social-event-cover.jpg',
-    '/cooperate-event-cover.jpg',
-    '/social-event-cover.jpg',
-    '/social-event-cover.jpg',
+  const galleryVideos = [
+    '/cop-vid1.mp4',
+    '/cop-vid2.mp4',
+    '/cop-vid3.mp4',
+    '/cop-vid4.mp4',
+    '/cop-vid5.mp4',
+    '/cop-vid6.mp4',
+    '/cop-vid7.mp4',
+    '/cop-vid8.mp4',
+    '/cop-vid9.mp4',
+    '/cop-vid10.mp4',
+    '/cop-vid11.mp4',
+    '/cop-vid12.mp4',
+    '/cop-vid13.mp4',
+    '/cop-vid14.mp4',
   ];
 
   return (
@@ -47,46 +106,29 @@ export default function CooperateEvents() {
       {/* Gallery Section */}
       <div className="event-gallery-container">
         <div className="event-gallery-grid">
-          {galleryImages.map((imgSrc, idx) => (
-            <div 
-              key={idx} 
-              className="event-gallery-card"
-              onClick={() => setSelectedImg(imgSrc)}
-              role="button"
-              tabIndex={0}
-              aria-label={`View cooperate event image ${idx + 1}`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setSelectedImg(imgSrc);
-                }
-              }}
-            >
-              <div className="event-gallery-img-wrapper">
-                <img 
-                  src={imgSrc} 
-                  alt={`Cooperate Event Setup ${idx + 1}`} 
-                  className="event-gallery-img"
-                  loading="lazy"
-                />
-                <div className="event-gallery-overlay"></div>
-              </div>
-            </div>
+          {galleryVideos.map((videoSrc, idx) => (
+            <VideoCard 
+              key={idx}
+              videoSrc={videoSrc}
+              idx={idx}
+              onClick={setSelectedVideo}
+            />
           ))}
         </div>
       </div>
 
       {/* Lightbox Modal */}
       <div 
-        className={`event-lightbox ${selectedImg ? 'is-open' : ''}`}
-        onClick={() => setSelectedImg(null)}
-        aria-hidden={!selectedImg}
+        className={`event-lightbox ${selectedVideo ? 'is-open' : ''}`}
+        onClick={() => setSelectedVideo(null)}
+        aria-hidden={!selectedVideo}
         role="dialog"
       >
         <button 
           className="event-lightbox-close" 
           onClick={(e) => {
             e.stopPropagation();
-            setSelectedImg(null);
+            setSelectedVideo(null);
           }}
           aria-label="Close Lightbox"
         >
@@ -96,11 +138,13 @@ export default function CooperateEvents() {
           className="event-lightbox-content"
           onClick={(e) => e.stopPropagation()}
         >
-          {selectedImg && (
-            <img 
-              src={selectedImg} 
-              alt="Zoomed Event Setup" 
-              className="event-lightbox-img" 
+          {selectedVideo && (
+            <video 
+              src={selectedVideo} 
+              className="event-lightbox-video" 
+              controls
+              autoPlay
+              playsInline
             />
           )}
         </div>
