@@ -84,21 +84,15 @@ export default function SocialEvents() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const galleryItems = [
-    { type: 'video', src: socialGalleryVideos[0] },
-    { type: 'image', src: '/social1.jpg' },
-    { type: 'video', src: socialGalleryVideos[1] },
-    { type: 'image', src: '/social2.jpeg' },
-    { type: 'video', src: socialGalleryVideos[2] },
-    { type: 'image', src: '/social3.jpeg' },
-    { type: 'video', src: socialGalleryVideos[3] },
-    { type: 'image', src: '/social4.jpeg' },
-    { type: 'video', src: socialGalleryVideos[4] },
-    { type: 'video', src: socialGalleryVideos[5] },
-    { type: 'video', src: socialGalleryVideos[6] },
-    { type: 'video', src: socialGalleryVideos[7] },
-    { type: 'video', src: socialGalleryVideos[8] },
-  ];
+  const images = ['/social1.jpg', '/social2.jpeg', '/social3.jpeg', '/social4.jpeg'];
+  const galleryItems = [];
+  
+  socialGalleryVideos.forEach((videoSrc, idx) => {
+    galleryItems.push({ type: 'video', src: videoSrc });
+    if (idx < 4) {
+      galleryItems.push({ type: 'image', src: images[idx] });
+    }
+  });
 
   return (
     <main className="event-page">
