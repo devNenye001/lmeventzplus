@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './EventPages.css';
+import { portfolioVideos } from '../lib/videoAssets';
 
 // Sub-component to manage interactive hover/click behavior for image vs video portfolio cards
 function PortfolioCard({ item, idx, onClick }) {
@@ -7,7 +8,7 @@ function PortfolioCard({ item, idx, onClick }) {
 
   const handleMouseEnter = () => {
     if (item.type === 'video' && videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   };
 
@@ -19,7 +20,7 @@ function PortfolioCard({ item, idx, onClick }) {
   };
 
   return (
-    <div 
+    <div
       className="event-gallery-card"
       onClick={() => onClick(item)}
       onMouseEnter={handleMouseEnter}
@@ -36,9 +37,9 @@ function PortfolioCard({ item, idx, onClick }) {
       <div className="event-gallery-img-wrapper">
         {item.type === 'video' ? (
           <>
-            <video 
+            <video
               ref={videoRef}
-              src={item.src} 
+              src={item.src}
               className="event-gallery-video"
               muted
               loop
@@ -55,9 +56,9 @@ function PortfolioCard({ item, idx, onClick }) {
           </>
         ) : (
           <>
-            <img 
-              src={item.src} 
-              alt={`Portfolio Setup ${idx + 1}`} 
+            <img
+              src={item.src}
+              alt={`Portfolio Setup ${idx + 1}`}
               className="event-gallery-img"
               loading="lazy"
             />
@@ -84,31 +85,7 @@ export default function Portfolio() {
   }, []);
 
   // Showcase of corporate & social event videos
-  const portfolioItems = [
-    { type: 'video', src: '/video-1.mp4' },
-    { type: 'video', src: '/cop-vid1.mp4' },
-    { type: 'video', src: '/video-2.mp4' },
-    { type: 'video', src: '/cop-vid2.mp4' },
-    { type: 'video', src: '/video-3.mp4' },
-    { type: 'video', src: '/cop-vid3.mp4' },
-    { type: 'video', src: '/video-4.mp4' },
-    { type: 'video', src: '/cop-vid4.mp4' },
-    { type: 'video', src: '/video-5.mp4' },
-    { type: 'video', src: '/cop-vid5.mp4' },
-    { type: 'video', src: '/video-6.mp4' },
-    { type: 'video', src: '/cop-vid6.mp4' },
-    { type: 'video', src: '/video-7.mp4' },
-    { type: 'video', src: '/cop-vid7.mp4' },
-    { type: 'video', src: '/video-8.mp4' },
-    { type: 'video', src: '/cop-vid8.mp4' },
-    { type: 'video', src: '/social5.mp4' },
-    { type: 'video', src: '/cop-vid9.mp4' },
-    { type: 'video', src: '/cop-vid10.mp4' },
-    { type: 'video', src: '/cop-vid11.mp4' },
-    { type: 'video', src: '/cop-vid12.mp4' },
-    { type: 'video', src: '/cop-vid13.mp4' },
-    { type: 'video', src: '/cop-vid14.mp4' },
-  ];
+  const portfolioItems = portfolioVideos.map((src) => ({ type: 'video', src }));
 
   return (
     <main className="event-page">
@@ -130,7 +107,7 @@ export default function Portfolio() {
       <div className="event-gallery-container">
         <div className="event-gallery-grid">
           {portfolioItems.map((item, idx) => (
-            <PortfolioCard 
+            <PortfolioCard
               key={idx}
               item={item}
               idx={idx}
@@ -141,14 +118,14 @@ export default function Portfolio() {
       </div>
 
       {/* Lightbox Modal */}
-      <div 
+      <div
         className={`event-lightbox ${selectedItem ? 'is-open' : ''}`}
         onClick={() => setSelectedItem(null)}
         aria-hidden={!selectedItem}
         role="dialog"
       >
-        <button 
-          className="event-lightbox-close" 
+        <button
+          className="event-lightbox-close"
           onClick={(e) => {
             e.stopPropagation();
             setSelectedItem(null);
@@ -157,24 +134,24 @@ export default function Portfolio() {
         >
           &times;
         </button>
-        <div 
+        <div
           className="event-lightbox-content"
           onClick={(e) => e.stopPropagation()}
         >
           {selectedItem && selectedItem.type === 'video' && (
-            <video 
-              src={selectedItem.src} 
-              className="event-lightbox-video" 
+            <video
+              src={selectedItem.src}
+              className="event-lightbox-video"
               controls
               autoPlay
               playsInline
             />
           )}
           {selectedItem && selectedItem.type === 'image' && (
-            <img 
-              src={selectedItem.src} 
-              alt="Zoomed Event Setup" 
-              className="event-lightbox-img" 
+            <img
+              src={selectedItem.src}
+              alt="Zoomed Event Setup"
+              className="event-lightbox-img"
             />
           )}
         </div>

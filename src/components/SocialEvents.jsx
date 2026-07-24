@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './EventPages.css';
+import { socialGalleryVideos } from '../lib/videoAssets';
 
 // Sub-component to manage interactive hover/click behavior for image vs video social cards
 function SocialEventCard({ item, idx, onClick }) {
@@ -7,7 +8,7 @@ function SocialEventCard({ item, idx, onClick }) {
 
   const handleMouseEnter = () => {
     if (item.type === 'video' && videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   };
 
@@ -19,7 +20,7 @@ function SocialEventCard({ item, idx, onClick }) {
   };
 
   return (
-    <div 
+    <div
       className="event-gallery-card"
       onClick={() => onClick(item)}
       onMouseEnter={handleMouseEnter}
@@ -36,9 +37,9 @@ function SocialEventCard({ item, idx, onClick }) {
       <div className="event-gallery-img-wrapper">
         {item.type === 'video' ? (
           <>
-            <video 
+            <video
               ref={videoRef}
-              src={item.src} 
+              src={item.src}
               className="event-gallery-video"
               muted
               loop
@@ -55,9 +56,9 @@ function SocialEventCard({ item, idx, onClick }) {
           </>
         ) : (
           <>
-            <img 
-              src={item.src} 
-              alt={`Social Event Setup ${idx + 1}`} 
+            <img
+              src={item.src}
+              alt={`Social Event Setup ${idx + 1}`}
               className="event-gallery-img"
               loading="lazy"
             />
@@ -84,19 +85,19 @@ export default function SocialEvents() {
   }, []);
 
   const galleryItems = [
-    { type: 'video', src: '/video-1.mp4' },
+    { type: 'video', src: socialGalleryVideos[0] },
     { type: 'image', src: '/social1.jpg' },
-    { type: 'video', src: '/video-2.mp4' },
+    { type: 'video', src: socialGalleryVideos[1] },
     { type: 'image', src: '/social2.jpeg' },
-    { type: 'video', src: '/video-3.mp4' },
+    { type: 'video', src: socialGalleryVideos[2] },
     { type: 'image', src: '/social3.jpeg' },
-    { type: 'video', src: '/video-4.mp4' },
+    { type: 'video', src: socialGalleryVideos[3] },
     { type: 'image', src: '/social4.jpeg' },
-    { type: 'video', src: '/video-5.mp4' },
-    { type: 'video', src: '/video-6.mp4' },
-    { type: 'video', src: '/video-7.mp4' },
-    { type: 'video', src: '/video-8.mp4' },
-    { type: 'video', src: '/social5.mp4' },
+    { type: 'video', src: socialGalleryVideos[4] },
+    { type: 'video', src: socialGalleryVideos[5] },
+    { type: 'video', src: socialGalleryVideos[6] },
+    { type: 'video', src: socialGalleryVideos[7] },
+    { type: 'video', src: socialGalleryVideos[8] },
   ];
 
   return (
@@ -120,7 +121,7 @@ export default function SocialEvents() {
       <div className="event-gallery-container">
         <div className="event-gallery-grid">
           {galleryItems.map((item, idx) => (
-            <SocialEventCard 
+            <SocialEventCard
               key={idx}
               item={item}
               idx={idx}
@@ -131,14 +132,14 @@ export default function SocialEvents() {
       </div>
 
       {/* Lightbox Modal */}
-      <div 
+      <div
         className={`event-lightbox ${selectedItem ? 'is-open' : ''}`}
         onClick={() => setSelectedItem(null)}
         aria-hidden={!selectedItem}
         role="dialog"
       >
-        <button 
-          className="event-lightbox-close" 
+        <button
+          className="event-lightbox-close"
           onClick={(e) => {
             e.stopPropagation();
             setSelectedItem(null);
@@ -147,24 +148,24 @@ export default function SocialEvents() {
         >
           &times;
         </button>
-        <div 
+        <div
           className="event-lightbox-content"
           onClick={(e) => e.stopPropagation()}
         >
           {selectedItem && selectedItem.type === 'video' && (
-            <video 
-              src={selectedItem.src} 
-              className="event-lightbox-video" 
+            <video
+              src={selectedItem.src}
+              className="event-lightbox-video"
               controls
               autoPlay
               playsInline
             />
           )}
           {selectedItem && selectedItem.type === 'image' && (
-            <img 
-              src={selectedItem.src} 
-              alt="Zoomed Event Setup" 
-              className="event-lightbox-img" 
+            <img
+              src={selectedItem.src}
+              alt="Zoomed Event Setup"
+              className="event-lightbox-img"
             />
           )}
         </div>

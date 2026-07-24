@@ -1,6 +1,7 @@
 
 import { Briefcase, Users, Sparkles } from 'lucide-react';
 import './Home.css';
+import { homeGalleryVideos, homeHeroVideo } from '../lib/videoAssets';
 
 export default function Home() {
   const logos = [
@@ -90,7 +91,7 @@ export default function Home() {
         <div className="home-hero-overlay"></div>
         <div className="home-hero-content">
           <h1 className="home-hero-title">
-            Creating Unforgettable Experiences <br />
+            Creating Mermorable Experiences <br />
             for Every <span className="home-hero-title-hand">Guest</span> and Occasion
           </h1>
           <p className="home-hero-desc">
@@ -251,33 +252,17 @@ export default function Home() {
           </h2>
         </div>
         <div className="video-gallery-grid">
-          <div className="video-card">
-            <video
-              src="/video-1.mp4"
-              controls
-              autoplay
-              preload="metadata"
-              className="home-video"
-            />
-          </div>
-          <div className="video-card">
-            <video
-              src="/video-2.mp4"
-              controls
-              autoplay
-              preload="metadata"
-              className="home-video"
-            />
-          </div>
-          <div className="video-card">
-            <video
-              src="/video-3.mp4"
-              controls
-              autoplay
-              preload="metadata"
-              className="home-video"
-            />
-          </div>
+          {homeGalleryVideos.map((videoSrc, idx) => (
+            <div key={idx} className="video-card">
+              <video
+                src={videoSrc}
+                controls
+                autoPlay
+                preload="metadata"
+                className="home-video"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -307,11 +292,10 @@ export default function Home() {
       <div className="large-video-container">
         <div className="large-video-wrapper">
           <video
-            src="/home-video.mp4"
+            src={homeHeroVideo}
             controls
-            autoplay
+            autoPlay
             preload="metadata"
-
             className="home-large-video"
           />
         </div>

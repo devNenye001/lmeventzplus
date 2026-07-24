@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './EventPages.css';
+import { cooperateGalleryVideos } from '../lib/videoAssets';
 
 // Sub-component for individual video cards to manage hover playback cleanly
 function VideoCard({ videoSrc, idx, onClick }) {
@@ -7,7 +8,7 @@ function VideoCard({ videoSrc, idx, onClick }) {
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   };
 
@@ -19,7 +20,7 @@ function VideoCard({ videoSrc, idx, onClick }) {
   };
 
   return (
-    <div 
+    <div
       className="event-gallery-card"
       onClick={() => onClick(videoSrc)}
       onMouseEnter={handleMouseEnter}
@@ -34,9 +35,9 @@ function VideoCard({ videoSrc, idx, onClick }) {
       }}
     >
       <div className="event-gallery-img-wrapper">
-        <video 
+        <video
           ref={videoRef}
-          src={videoSrc} 
+          src={videoSrc}
           className="event-gallery-video"
           muted
           loop
@@ -69,22 +70,7 @@ export default function CooperateEvents() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const galleryVideos = [
-    '/cop-vid1.mp4',
-    '/cop-vid2.mp4',
-    '/cop-vid3.mp4',
-    '/cop-vid4.mp4',
-    '/cop-vid5.mp4',
-    '/cop-vid6.mp4',
-    '/cop-vid7.mp4',
-    '/cop-vid8.mp4',
-    '/cop-vid9.mp4',
-    '/cop-vid10.mp4',
-    '/cop-vid11.mp4',
-    '/cop-vid12.mp4',
-    '/cop-vid13.mp4',
-    '/cop-vid14.mp4',
-  ];
+  const galleryVideos = cooperateGalleryVideos;
 
   return (
     <main className="event-page">
@@ -107,7 +93,7 @@ export default function CooperateEvents() {
       <div className="event-gallery-container">
         <div className="event-gallery-grid">
           {galleryVideos.map((videoSrc, idx) => (
-            <VideoCard 
+            <VideoCard
               key={idx}
               videoSrc={videoSrc}
               idx={idx}
@@ -118,14 +104,14 @@ export default function CooperateEvents() {
       </div>
 
       {/* Lightbox Modal */}
-      <div 
+      <div
         className={`event-lightbox ${selectedVideo ? 'is-open' : ''}`}
         onClick={() => setSelectedVideo(null)}
         aria-hidden={!selectedVideo}
         role="dialog"
       >
-        <button 
-          className="event-lightbox-close" 
+        <button
+          className="event-lightbox-close"
           onClick={(e) => {
             e.stopPropagation();
             setSelectedVideo(null);
@@ -134,14 +120,14 @@ export default function CooperateEvents() {
         >
           &times;
         </button>
-        <div 
+        <div
           className="event-lightbox-content"
           onClick={(e) => e.stopPropagation()}
         >
           {selectedVideo && (
-            <video 
-              src={selectedVideo} 
-              className="event-lightbox-video" 
+            <video
+              src={selectedVideo}
+              className="event-lightbox-video"
               controls
               autoPlay
               playsInline
