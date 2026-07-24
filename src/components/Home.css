@@ -190,17 +190,6 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  opacity: 0.55;
-  filter: grayscale(100%);
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.marquee-logo-wrapper:hover .marquee-logo {
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.08);
 }
 
 @keyframes marquee {
