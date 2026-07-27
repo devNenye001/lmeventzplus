@@ -130,6 +130,7 @@ export default function CooperateEvents() {
               className="event-lightbox-video"
               controls
               autoPlay
+              muted
               playsInline
             />
           )}

@@ -258,6 +258,9 @@ export default function Home() {
                 src={videoSrc}
                 controls
                 autoPlay
+                muted
+                loop
+                playsInline
                 preload="metadata"
                 className="home-video"
               />
@@ -295,6 +298,9 @@ export default function Home() {
             src={homeHeroVideo}
             controls
             autoPlay
+            muted
+            loop
+            playsInline
             preload="metadata"
             className="home-large-video"
           />

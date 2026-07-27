@@ -152,6 +152,7 @@ export default function SocialEvents() {
               className="event-lightbox-video"
               controls
               autoPlay
+              muted
               playsInline
             />
           )}

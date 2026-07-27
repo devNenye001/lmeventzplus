@@ -144,6 +144,7 @@ export default function Portfolio() {
               className="event-lightbox-video"
               controls
               autoPlay
+              muted
               playsInline
             />
           )}
