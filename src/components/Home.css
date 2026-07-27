@@ -106,6 +106,42 @@
   box-shadow: 0 15px 30px rgba(232, 161, 39, 0.4);
 }
 
+.home-hero-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  color: var(--primary);
+  font-family: var(--font-base);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 16px 36px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.home-hero-btn-white:hover {
+  background-color: #fcfcfc;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  color: var(--primary-hover);
+}
+
+.home-hero-btn-white .btn-arrow {
+  font-size: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  line-height: 1;
+}
+
+.home-hero-btn-white:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
 /* Logos Marquee Section */
 .logos-section {
   padding: 80px 0;
@@ -789,7 +825,8 @@
     font-size: 14px;
     margin-bottom: 25px;
   }
-  .home-hero-btn {
+  .home-hero-btn,
+  .home-hero-btn-white {
     padding: 12px 28px;
     font-size: 14px;
   }

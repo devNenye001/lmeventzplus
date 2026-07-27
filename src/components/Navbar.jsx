@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <header className="navbar-container">
+    <header className={`navbar-container ${isScrolled ? 'is-scrolled' : ''} ${isOpen ? 'menu-open' : ''}`}>
       <div className="navbar-inner">
         <a href="/" className="navbar-logo-link">
-          <img src="/golden-logo.png" alt="LM EVENTZ" className="navbar-logo" />
+          <img 
+            src={isScrolled ? "/golden-logo.png" : "/white-logo.png"} 
+            alt="LM EVENTZ" 
+            className="navbar-logo" 
+          />
         </a>
 
         <button 
@@ -34,7 +47,7 @@ export default function Navbar() {
             <li><a href="/contact" className="navbar-link" onClick={() => setIsOpen(false)}>Contact Us</a></li>
           </ul>
           <a 
-            href="https://wa.me/2348136612150" 
+            href="https://wa.me/2348033536551" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="navbar-btn-mobile" 
@@ -46,7 +59,7 @@ export default function Navbar() {
 
         <div className="navbar-action">
           <a 
-            href="https://wa.me/2348136612150" 
+            href="https://wa.me/2348033536551" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="navbar-btn"

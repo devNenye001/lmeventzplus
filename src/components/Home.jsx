@@ -91,19 +91,19 @@ export default function Home() {
         <div className="home-hero-overlay"></div>
         <div className="home-hero-content">
           <h1 className="home-hero-title">
-            Creating Mermorable Experiences <br />
-            for Every <span className="home-hero-title-hand">Guest</span> and Occasion
+            Creating Unforgettable Experiences <br />
+            for Every Guest and Occasion.
           </h1>
           <p className="home-hero-desc">
-            Whether it's a grand corporate event or an intimate social gathering, we bring your vision to life with creativity, precision, and exceptional execution.
+            Whether it’s a corporate event, exhibition, luxury celebration, branded activation, or large-scale installation — LM Eventz Plus delivers seamless planning, stunning setups, and flawless coordination.
           </p>
           <a
             href="https://wa.me/2348033536551"
             target="_blank"
             rel="noopener noreferrer"
-            className="home-hero-btn"
+            className="home-hero-btn-white"
           >
-            Book Consultation
+            Plan Your Event <span className="btn-arrow">→</span>
           </a>
         </div>
       </div>
