@@ -91,7 +91,7 @@ export default function Home() {
         <div className="home-hero-overlay"></div>
         <div className="home-hero-content">
           <h1 className="home-hero-title">
-            Creating Unforgettable Experiences <br />
+            Creating Mermorable Experiences <br />
             for Every Guest and Occasion.
           </h1>
           <p className="home-hero-desc">

@@ -1,5 +1,5 @@
-import React from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+
+import { MapPin, Mail, Phone, Instagram } from 'lucide-react';
 import './Contact.css';
 
 export default function Contact() {
@@ -18,7 +18,7 @@ export default function Contact() {
       {/* Main Content Section */}
       <div className="contact-content-container">
         <div className="contact-grid">
-          
+
           {/* Left Column: Info */}
           <div className="contact-info-col">
             <h2 className="contact-heading">Let's Bring Your Vision To Life</h2>
@@ -46,7 +46,7 @@ export default function Contact() {
                 <div className="contact-info-text">
                   <h3 className="contact-info-label">Email</h3>
                   <p className="contact-info-val">
-                    <a href="mailto:customercaare@lmeventzplus.com" className="contact-link">customercaare@lmeventzplus.com</a>
+                    <a href="mailto:customercaare@lmeventzplus.com" className="contact-link">customercare@lmeventzplus.com</a>
                     <br />
                     <a href="mailto:Sales@lmeventzplus.com" className="contact-link">Sales@lmeventzplus.com</a>
                   </p>
@@ -67,19 +67,34 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
+
+              {/* Instagram */}
+              <div className="contact-info-item">
+                <div className="contact-icon-box">
+                  <Instagram className="contact-icon" />
+                </div>
+                <div className="contact-info-text">
+                  <h3 className="contact-info-label">Instagram</h3>
+                  <p className="contact-info-val">
+                    <a href="https://instagram.com/lmeventz" className="contact-link">@lmeventz</a>
+                    <br />
+                    <a href="https://instagram.com/boothsbylmeventzplus" className="contact-link">@boothsbylmeventzplus</a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Right Column: Map */}
           <div className="contact-map-col">
             <div className="contact-map-wrapper">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15857.664417655977!2d7.529338909118808!3d6.468857167309282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044a55d4b3580ef%3A0xaa60d811a79a5876!2sLmeventz!5e0!3m2!1sen!2sng!4v1782917867627!5m2!1sen!2sng" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15857.664417655977!2d7.529338909118808!3d6.468857167309282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044a55d4b3580ef%3A0xaa60d811a79a5876!2sLmeventz!5e0!3m2!1sen!2sng!4v1782917867627!5m2!1sen!2sng"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="Lmeventz Location Map"
               ></iframe>

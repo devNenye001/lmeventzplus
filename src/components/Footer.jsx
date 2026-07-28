@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Upper CTA Section */}
         <div className="footer-cta">
           <h2 className="footer-cta-title">
-            Let's turn your vision into an <br /> unforgettable experience.
+            Let's turn your vision into an <br /> mermorable experience.
           </h2>
           <a 
             href="https://wa.me/2348033536551" 
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <span className="support-icon">📍</span>
                 <div>
-                  <span className="info-label">Branches:</span>
+                  <span className="info-label">Head Office:</span>
                   <span className="support-text">Ojels Mall, Thinker's Corner, Enugu State, Nigeria.</span>
                 </div>
               </li>
