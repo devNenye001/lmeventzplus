@@ -1,5 +1,5 @@
 
-import { MapPin, Mail, Phone, Instagram } from 'lucide-react';
+import { MapPin, Mail, Phone, Share2 } from 'lucide-react';
 import './Contact.css';
 
 export default function Contact() {
@@ -71,7 +71,7 @@ export default function Contact() {
               {/* Instagram */}
               <div className="contact-info-item">
                 <div className="contact-icon-box">
-                  <Instagram className="contact-icon" />
+                  <Share2 className="contact-icon" />
                 </div>
                 <div className="contact-info-text">
                   <h3 className="contact-info-label">Instagram</h3>
