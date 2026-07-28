@@ -74,7 +74,7 @@ export default function Footer() {
                 <span className="support-icon">✉️</span>
                 <div>
                   <span className="info-label">Email:</span>
-                  <a href="mailto:customercaare@lmeventzplus.com" className="support-link">customercaare@lmeventzplus.com</a>, <a href="mailto:Sales@lmeventzplus.com" className="support-link">Sales@lmeventzplus.com</a>
+                  <a href="mailto:customercaare@lmeventzplus.com" className="support-link">customercare@lmeventzplus.com</a>, <a href="mailto:Sales@lmeventzplus.com" className="support-link">Sales@lmeventzplus.com</a>
                 </div>
               </li>
               <li>
