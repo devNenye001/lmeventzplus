@@ -4,8 +4,14 @@ import video3 from "/video-3.mp4";
 import video4 from "/video-4.mp4";
 import video5 from "/video-5.mp4";
 import video6 from "/video-6.mp4";
-import homeVideo from "/home-video.mp4";
+import homeVideo from "/video-3.mp4";
 import social5 from "/social5.mp4";
+import social6 from "/social6.mp4";
+import social7 from "/social7.mp4";
+import social8 from "/social8.mp4";
+import social9 from "/social9.mp4";
+import social10 from "/social10.mp4";
+import social11 from "/social11.mp4";
 import copVid1 from "/cop-vid1.mp4";
 import copVid2 from "/cop-vid2.mp4";
 import copVid3 from "/cop-vid3.mp4";
@@ -16,6 +22,15 @@ import copVid7 from "/cop-vid7.mp4";
 import copVid8 from "/cop-vid8.mp4";
 import copVid9 from "/cop-vid9.mp4";
 import copVid10 from "/cop-vid10.mp4";
+import copVid11 from "/cop-vid11.mp4";
+import copVid12 from "/cop-vid12.mp4";
+import copVid13 from "/cop-vid13.mp4";
+import copVid14 from "/cop-vid14.mp4";
+import copVid15 from "/cop-vid15.mp4";
+import copVid16 from "/cop-vid16.mp4";
+import copVid17 from "/cop-vid17.mp4";
+import copVid18 from "/cop-vid18.mp4";
+import copVid19 from "/cop-vid19.mp4";
 
 export const homeGalleryVideos = [video1, video2, video3];
 export const homeHeroVideo = homeVideo;
@@ -34,10 +49,25 @@ export const portfolioVideos = [
   video6,
   copVid6,
   social5,
+  social6,
+  social7,
+  social8,
+  social9,
+  social10,
+  social11,
   copVid7,
   copVid8,
   copVid9,
   copVid10,
+  copVid11,
+  copVid12,
+  copVid13,
+  copVid14,
+  copVid15,
+  copVid16,
+  copVid17,
+  copVid18,
+  copVid19,
 ];
 
 export const socialGalleryVideos = [
@@ -48,6 +78,12 @@ export const socialGalleryVideos = [
   video5,
   video6,
   social5,
+  social6,
+  social7,
+  social8,
+  social9,
+  social10,
+  social11,
 ];
 
 export const cooperateGalleryVideos = [
@@ -61,4 +97,13 @@ export const cooperateGalleryVideos = [
   copVid8,
   copVid9,
   copVid10,
+  copVid11,
+  copVid12,
+  copVid13,
+  copVid14,
+  copVid15,
+  copVid16,
+  copVid17,
+  copVid18,
+  copVid19,
 ];
