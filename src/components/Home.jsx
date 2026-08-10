@@ -12,7 +12,6 @@ export default function Home() {
     '/logo5.PNG',
     '/logo6.JPG',
     '/logo7.PNG',
-    '/logo9.JPG',
     '/logo10.JPG'
   ];
   // Duplicate array once for infinite seamless scrolling marquee
@@ -294,16 +293,24 @@ export default function Home() {
       {/* Large Video Showcase (Middle-Bottom) */}
       <div className="large-video-container">
         <div className="large-video-wrapper">
-          <video
-            src={homeHeroVideo}
-            controls
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="home-large-video"
-          />
+          {typeof homeHeroVideo === 'string' && /\.(jpe?g|png|gif|webp)/i.test(homeHeroVideo) ? (
+            <img
+              src={homeHeroVideo}
+              alt="Large Showcase"
+              className="home-large-video"
+            />
+          ) : (
+            <video
+              src={homeHeroVideo}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="home-large-video"
+            />
+          )}
         </div>
       </div>
 

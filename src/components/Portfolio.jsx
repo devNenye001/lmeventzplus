@@ -84,8 +84,14 @@ export default function Portfolio() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Showcase of corporate & social event videos
-  const portfolioItems = portfolioVideos.map((src) => ({ type: 'video', src }));
+  // Showcase of corporate & social event videos and images
+  const portfolioItems = portfolioVideos.map((src) => {
+    const isImg = typeof src === 'string' && /\.(jpe?g|png|gif|webp)/i.test(src);
+    return {
+      type: isImg ? 'image' : 'video',
+      src
+    };
+  });
 
   return (
     <main className="event-page">

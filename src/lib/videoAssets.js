@@ -4,7 +4,6 @@ import video3 from "/video-3.mp4";
 import video4 from "/video-4.mp4";
 import video5 from "/video-5.mp4";
 import video6 from "/video-6.mp4";
-import homeVideo from "/video-3.mp4";
 import social5 from "/social5.mp4";
 import social6 from "/social6.mp4";
 import social7 from "/social7.mp4";
@@ -31,9 +30,21 @@ import copVid16 from "/cop-vid16.mp4";
 import copVid17 from "/cop-vid17.mp4";
 import copVid18 from "/cop-vid18.mp4";
 import copVid19 from "/cop-vid19.mp4";
+import copVid20 from "/cop-vid20.jpeg";
+import copVid21 from "/cop-vid21.mp4";
+import copVid22 from "/cop-vid22.mp4";
+import copVid23 from "/cop-vid23.jpeg";
+import copVid24 from "/cop-vid24.jpeg";
+import copVid25 from "/cop-vid25.jpeg";
+import copVid26 from "/cop-vid26.mp4";
+import copVid27 from "/cop-vid27.jpeg";
+import copVid28 from "/cop-vid28.jpeg";
+import copVid29 from "/cop-vid29.mp4";
+import copVid30 from "/cop-vid30.mp4";
+import copVid31 from "/cop-vid31.mp4";
 
 export const homeGalleryVideos = [video1, video2, video3];
-export const homeHeroVideo = homeVideo;
+export const homeHeroVideo = copVid25;
 
 export const portfolioVideos = [
   video1,
@@ -68,6 +79,18 @@ export const portfolioVideos = [
   copVid17,
   copVid18,
   copVid19,
+  copVid20,
+  copVid21,
+  copVid22,
+  copVid23,
+  copVid24,
+  copVid25,
+  copVid26,
+  copVid27,
+  copVid28,
+  copVid29,
+  copVid30,
+  copVid31,
 ];
 
 export const socialGalleryVideos = [
@@ -106,4 +129,16 @@ export const cooperateGalleryVideos = [
   copVid17,
   copVid18,
   copVid19,
+  copVid20,
+  copVid21,
+  copVid22,
+  copVid23,
+  copVid24,
+  copVid25,
+  copVid26,
+  copVid27,
+  copVid28,
+  copVid29,
+  copVid30,
+  copVid31,
 ];

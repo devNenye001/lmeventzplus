@@ -2,18 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import './EventPages.css';
 import { cooperateGalleryVideos } from '../lib/videoAssets';
 
-// Sub-component for individual video cards to manage hover playback cleanly
+// Sub-component for individual video/image cards to manage hover playback cleanly
 function VideoCard({ videoSrc, idx, onClick }) {
   const videoRef = useRef(null);
+  const isImg = typeof videoSrc === 'string' && /\.(jpe?g|png|gif|webp)/i.test(videoSrc);
 
   const handleMouseEnter = () => {
-    if (videoRef.current) {
+    if (!isImg && videoRef.current) {
       videoRef.current.play().catch(() => { });
     }
   };
 
   const handleMouseLeave = () => {
-    if (videoRef.current) {
+    if (!isImg && videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0; // reset to beginning
     }
@@ -27,7 +28,7 @@ function VideoCard({ videoSrc, idx, onClick }) {
       onMouseLeave={handleMouseLeave}
       role="button"
       tabIndex={0}
-      aria-label={`Play corporate event video ${idx + 1}`}
+      aria-label={`View corporate event ${isImg ? 'image' : 'video'} ${idx + 1}`}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           onClick(videoSrc);
@@ -35,22 +36,36 @@ function VideoCard({ videoSrc, idx, onClick }) {
       }}
     >
       <div className="event-gallery-img-wrapper">
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          className="event-gallery-video"
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-        <div className="video-card-overlay">
-          <div className="video-play-btn">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
+        {isImg ? (
+          <>
+            <img
+              src={videoSrc}
+              alt={`Corporate Event Setup ${idx + 1}`}
+              className="event-gallery-img"
+              loading="lazy"
+            />
+            <div className="event-gallery-overlay"></div>
+          </>
+        ) : (
+          <>
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              className="event-gallery-video"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+            <div className="video-card-overlay">
+              <div className="video-play-btn">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -125,14 +140,22 @@ export default function CooperateEvents() {
           onClick={(e) => e.stopPropagation()}
         >
           {selectedVideo && (
-            <video
-              src={selectedVideo}
-              className="event-lightbox-video"
-              controls
-              autoPlay
-              muted
-              playsInline
-            />
+            typeof selectedVideo === 'string' && /\.(jpe?g|png|gif|webp)/i.test(selectedVideo) ? (
+              <img
+                src={selectedVideo}
+                alt="Zoomed Event Setup"
+                className="event-lightbox-img"
+              />
+            ) : (
+              <video
+                src={selectedVideo}
+                className="event-lightbox-video"
+                controls
+                autoPlay
+                muted
+                playsInline
+              />
+            )
           )}
         </div>
       </div>
