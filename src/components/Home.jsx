@@ -293,24 +293,11 @@ export default function Home() {
       {/* Large Video Showcase (Middle-Bottom) */}
       <div className="large-video-container">
         <div className="large-video-wrapper">
-          {typeof homeHeroVideo === 'string' && /\.(jpe?g|png|gif|webp)/i.test(homeHeroVideo) ? (
-            <img
-              src={homeHeroVideo}
-              alt="Large Showcase"
-              className="home-large-video"
-            />
-          ) : (
-            <video
-              src={homeHeroVideo}
-              controls
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="home-large-video"
-            />
-          )}
+          <img
+            src={homeHeroVideo}
+            alt="Large Showcase"
+            className="home-large-video"
+          />
         </div>
       </div>
 
