@@ -1,4 +1,5 @@
 
+import { Phone, Mail, MapPin } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -64,21 +65,21 @@ export default function Footer() {
             <h3 className="footer-col-title">SUPPORT</h3>
             <ul className="footer-info-list support-list">
               <li>
-                <span className="support-icon">📞</span>
+                <Phone className="support-icon" size={16} />
                 <div>
                   <span className="info-label">Call Us:</span>
                   <a href="tel:+2348033536551" className="support-link">+234 803 353 6551</a> | <a href="tel:+2348159261778" className="support-link">+234 815 926 1778</a>
                 </div>
               </li>
               <li>
-                <span className="support-icon">✉️</span>
+                <Mail className="support-icon" size={16} />
                 <div>
                   <span className="info-label">Email:</span>
-                  <a href="mailto:customercaare@lmeventzplus.com" className="support-link">customercare@lmeventzplus.com</a>, <a href="mailto:Sales@lmeventzplus.com" className="support-link">Sales@lmeventzplus.com</a>
+                  <a href="mailto:customercare@lmeventzplus.com" className="support-link">customercare@lmeventzplus.com</a>, <a href="mailto:Sales@lmeventzplus.com" className="support-link">Sales@lmeventzplus.com</a>
                 </div>
               </li>
               <li>
-                <span className="support-icon">📍</span>
+                <MapPin className="support-icon" size={16} />
                 <div>
                   <span className="info-label">Head Office:</span>
                   <span className="support-text">Ojels Mall, Thinker's Corner, Enugu State, Nigeria.</span>
