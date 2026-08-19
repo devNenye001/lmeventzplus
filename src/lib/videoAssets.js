@@ -42,8 +42,10 @@ import copVid28 from "/cop-vid28.jpeg";
 import copVid29 from "/cop-vid29.mp4";
 import copVid30 from "/cop-vid30.mp4";
 import copVid31 from "/cop-vid31.mp4";
+import copVid32 from "/cop-vid32.mp4";
+import copVid33 from "/cop-vid33.mp4";
 
-export const homeGalleryVideos = [video1, video2, video3];
+export const homeGalleryVideos = [copVid32, copVid33, video3];
 export const homeHeroVideo = copVid25;
 
 export const portfolioVideos = [
@@ -91,6 +93,8 @@ export const portfolioVideos = [
   copVid29,
   copVid30,
   copVid31,
+  copVid32,
+  copVid33,
 ];
 
 export const socialGalleryVideos = [
@@ -141,4 +145,6 @@ export const cooperateGalleryVideos = [
   copVid29,
   copVid30,
   copVid31,
+  copVid32,
+  copVid33,
 ];

@@ -188,7 +188,7 @@ export default function Home() {
             </p>
             <div className="project-card-img-wrapper">
               <img
-                src="/social-event-cover.jpg"
+                src="/social-event-cover2.jpg"
                 alt="Social Events"
                 className="project-card-img"
               />
